@@ -297,6 +297,7 @@ function initQuizModule() {
                     $('#reward-image')
                         .attr('src', imageUrl)
                         .attr('alt', `${pokemonName} artwork`);
+                    $('#reward-name').text(`Pokemon: ${pokemonName}`);
                     $rewardContainer.removeClass('d-none').hide().slideDown(600);
                 }
             },
@@ -386,6 +387,8 @@ function initQuizModule() {
         isDirty = false;
         $resultContainer.addClass('d-none');
         $rewardContainer.addClass('d-none');
+        $('#reward-image').attr('src', '').attr('alt', 'Random Pokemon reward');
+        $('#reward-name').text('');
         $quizContainer.removeClass('d-none').hide().fadeIn(500);
         
         shuffleArray(questionsData);
