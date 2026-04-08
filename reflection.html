@@ -123,7 +123,7 @@
                     
                     <h6 class="text-white mt-4">How I fixed it</h6>
                     <p class="small text-muted">
-                        I realized that any interaction with Web Storage APIs must be treated as an unreliable operation. I rewrote the AI's logic in <code>app.js</code> by wrapping both the read and write operations in <code>try/catch</code> blocks. If the storage fails, the app gracefully catches the error, logs it to the console, and continues executing the rest of the UI logic (showing the score and fetching the dog image), ensuring the user experience is not interrupted.
+                        I realized that any interaction with Web Storage APIs must be treated as an unreliable operation. I rewrote the AI's logic in <code>app.js</code> by wrapping both the read and write operations in <code>try/catch</code> blocks. If the storage fails, the app gracefully catches the error, logs it to the console, and continues executing the rest of the UI logic (showing the score and fetching the Pok&eacute;mon image), ensuring the user experience is not interrupted.
                     </p>
                     <pre class="m-0 p-3 rounded"><code>function saveAttemptToHistory(scoreData) {
   try {

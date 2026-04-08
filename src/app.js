@@ -281,13 +281,22 @@ function initQuizModule() {
 
     // 7. Reward via Public API (jQuery AJAX)
     function fetchRewardAPI() {
+        const randomPokemonId = Math.floor(Math.random() * 1025) + 1;
+
         $.ajax({
-            url: 'https://dog.ceo/api/breeds/image/random',
+            url: `https://pokeapi.co/api/v2/pokemon/${randomPokemonId}/`,
             method: 'GET',
             dataType: 'json',
             success: function(data) {
-                if (data && data.status === 'success' && data.message) {
-                    $('#reward-image').attr('src', data.message);
+                const imageUrl = data?.sprites?.other?.['official-artwork']?.front_default || data?.sprites?.front_default;
+                const pokemonName = data?.name
+                    ? data.name.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase())
+                    : 'Pokemon reward';
+
+                if (imageUrl) {
+                    $('#reward-image')
+                        .attr('src', imageUrl)
+                        .attr('alt', `${pokemonName} artwork`);
                     $rewardContainer.removeClass('d-none').hide().slideDown(600);
                 }
             },
