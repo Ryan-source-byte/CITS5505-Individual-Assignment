@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae | Ryan Gong</title>
+    <link rel="stylesheet" href="src/style.css">
+    <!-- Bootstrap Icons for CV -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CITS5505 <span class="text-white">Project</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Tutorial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reflection.html">AI Reflection</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cv.html">CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CV Header / Hero -->
+    <header class="py-5 container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="display-4 fw-bold text-gradient mb-2">Ryan (Lintao) Gong</h1>
+                <h3 class="text-muted fw-light mb-4">AI Specialist & Full-Stack Developer</h3>
+                
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <span class="badge bg-dark border border-secondary p-2 text-light">
+                        <i class="bi bi-envelope-fill text-cyan me-2"></i> shampollkamikaze@gmail.com
+                    </span>
+                    <span class="badge bg-dark border border-secondary p-2 text-light">
+                        <i class="bi bi-telephone-fill text-cyan me-2"></i> +61 431280488
+                    </span>
+                    <a href="https://linkedin.com" target="_blank" class="badge bg-dark border border-secondary p-2 text-light text-decoration-none hover-cyan">
+                        <i class="bi bi-linkedin text-cyan me-2"></i> LinkedIn Profile
+                    </a>
+                    <a href="https://github.com/Ryan-source-byte" target="_blank" class="badge bg-dark border border-secondary p-2 text-light text-decoration-none hover-cyan">
+                        <i class="bi bi-github text-cyan me-2"></i> GitHub Portfolio
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center text-md-end">
+                <!-- Placeholder for Profile Picture -->
+                <div class="d-inline-block rounded-circle p-1" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));">
+                    <img src="personal%20photo.jpg" alt="Ryan Gong Profile" class="rounded-circle" style="width: 180px; height: 180px; object-fit: cover;" referrerPolicy="no-referrer">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        
+        <!-- Summary Section -->
+        <section class="mb-5">
+            <div class="card bg-dark border-cyan p-4 shadow-sm">
+                <h4 class="text-cyan mb-3"><i class="bi bi-person-lines-fill me-2"></i> Professional Summary</h4>
+                <p class="mb-0 text-light" style="line-height: 1.8;">
+                    Master’s student in Information Technology (AI specialization) at the University of Western Australia, with practical experience in data analysis, AI, and software development. Proficient in Python, databases, and Natural Language Processing (NLP). Practical exposure includes developing Multi-Agent RAG systems, custom LLM based on SFT fine-tuning, and Agent-Based Computational Modeling. Passionate about transforming data-driven insights into innovative solutions.
+                </p>
+            </div>
+        </section>
+
+        <div class="row g-5">
+            <!-- Left Column: Education & Skills -->
+            <div class="col-lg-4">
+                
+                <!-- Education -->
+                <section class="mb-5">
+                    <h4 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-mortarboard-fill text-gradient me-2"></i> Education</h4>
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-light mb-1">Master of Information Technology</h6>
+                        <p class="text-cyan small mb-1">AI Specialization</p>
+                        <p class="text-muted small">University of Western Australia <br> 02.2025 – 11.2026 (Expected)</p>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold text-light mb-1">Bachelor of Engineering</h6>
+                        <p class="text-muted small">HeNan University, China <br> 09.2019 – 06.2023</p>
+                    </div>
+                </section>
+
+                <!-- Technical Skills (Grid Layout) -->
+                <section class="mb-5">
+                    <h4 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-code-square text-gradient me-2"></i> Technical Skills</h4>
+                    
+                    <div class="row g-3">
+                        <div class="col-sm-6 col-lg-12">
+                            <div class="card bg-dark border-secondary p-3 h-100" style="transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <h6 class="text-cyan mb-2"><i class="bi bi-terminal me-2"></i>Languages</h6>
+                                <p class="small text-light mb-0">Python, C, SQL, R</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-12">
+                            <div class="card bg-dark border-secondary p-3 h-100" style="transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <h6 class="text-cyan mb-2"><i class="bi bi-cpu me-2"></i>AI & Data</h6>
+                                <p class="small text-light mb-0">TensorFlow, PyTorch, RAG</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-12">
+                            <div class="card bg-dark border-secondary p-3 h-100" style="transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <h6 class="text-cyan mb-2"><i class="bi bi-globe me-2"></i>Web Tech</h6>
+                                <p class="small text-light mb-0">Flask, Django, HTML/CSS/JS</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-12">
+                            <div class="card bg-dark border-secondary p-3 h-100" style="transition: transform 0.2s; cursor: default;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+                                <h6 class="text-cyan mb-2"><i class="bi bi-database me-2"></i>Databases</h6>
+                                <p class="small text-light mb-0">MySQL, PostgreSQL, MongoDB</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Experience & Projects -->
+            <div class="col-lg-8">
+                
+                <!-- Work Experience (Timeline) -->
+                <section class="mb-5">
+                    <h4 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill text-gradient me-2"></i> Work Experience</h4>
+                    
+                    <div class="cv-timeline">
+                        <!-- Experience 1 -->
+                        <div class="cv-timeline-item">
+                            <h5 class="fw-bold text-light mb-1">Team Lead & Architect</h5>
+                            <h6 class="text-cyan mb-2">BIGTIMES, Shanghai (Hybrid) | 09.2025 - Present</h6>
+                            <p class="text-muted small mb-2">RAG AI Agent System Development</p>
+                            <ul class="text-muted small">
+                                <li>Spearheaded the end-to-end development of "BIGTIMES IDP-AI Intelligent Data Inquiry Platform", an enterprise-grade NL-to-SQL platform for the financial sector.</li>
+                                <li>Designed a Dify-based orchestration framework comprising specialized agents (Intent Recognition, NL2SQL, Rerank).</li>
+                                <li>Implemented Knowledge Graph (Neo4j) driven table-relationship management, reducing token consumption by 48%.</li>
+                                <li>Led SFT and LoRA adaptation of LLMs to internal financial datasets.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Experience 2 -->
+                        <div class="cv-timeline-item">
+                            <h5 class="fw-bold text-light mb-1">Research Software Development Intern</h5>
+                            <h6 class="text-cyan mb-2">The Kids Research Institute Australia (IDEM) | 11.2025 - 12.2025</h6>
+                            <p class="text-muted small mb-2">Working with Prof. Nicholas Golding & Dr. Saras Windecker</p>
+                            <ul class="text-muted small">
+                                <li>Updated and optimized the R-based <code>mixchar</code> toolkit for Thermogravimetric Analysis of Plant Leaves.</li>
+                                <li>Developed a complementary, user-friendly graphical interface using Shiny to promote open science.</li>
+                                <li>Optimized visualization for the "mixed-carbon component" in version 0.1.0 of the toolkit.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects (Cards with Hover) -->
+                <section class="mb-5">
+                    <h4 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-folder-fill text-gradient me-2"></i> Key Projects</h4>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 p-3 bg-dark">
+                                <h6 class="text-light fw-bold">Agent-Based Model of AUD Market</h6>
+                                <p class="small text-cyan mb-2">Python, Computer Modeling</p>
+                                <p class="small text-muted mb-0">A comprehensive data modeling project using Agent-Based Modeling (ABM) to simulate the real dynamics of the Australian dollar exchange rate market. Designed agent behaviors via Jupyter Notebooks.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 p-3 bg-dark">
+                                <h6 class="text-light fw-bold">Medical Entry-Recognition (NLP)</h6>
+                                <p class="small text-cyan mb-2">Python, AI Tools, RNN, LSTM</p>
+                                <p class="small text-muted mb-0">Applied deep learning techniques including Transformer models to analyze text data. Built the overall pipeline including data preprocessing, embedding layers, and hyperparameter tuning.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card p-3 bg-dark">
+                                <h6 class="text-light fw-bold">Scientific Text NLI System</h6>
+                                <p class="small text-cyan mb-2">Python, BiLSTM, Transformers</p>
+                                <p class="small text-muted mb-0">Compared BiLSTM, cross-sentence interactive attention models, and Transformers on the scientific text natural language inference (NLI) task. The BiLSTM with cross-attention achieved 70.98% accuracy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- References Section (Rubric Requirement) -->
+        <section class="mt-5 pt-5 border-top border-secondary">
+            <h3 class="mb-4 text-center">References & Acknowledgements</h3>
+            <div class="card bg-dark p-4">
+                <p class="text-muted small mb-4 text-center">The following resources and tools were utilized in the development of this CITS5505 Individual Project, formatted according to APA 7th Edition guidelines.</p>
+                
+                <ul class="reference-list small">
+                    <li>
+                        Bootstrap Core Team. (2026). <em>Bootstrap 5.3 Documentation</em>. Retrieved April 8, 2026, from <a href="https://getbootstrap.com/docs/5.3/" target="_blank" class="text-cyan">https://getbootstrap.com/docs/5.3/</a>
+                    </li>
+                    <li>
+                        Dog API. (n.d.). <em>Dog API - The internet's biggest collection of open source dog pictures</em>. Retrieved April 8, 2026, from <a href="https://dog.ceo/dog-api/" target="_blank" class="text-cyan">https://dog.ceo/dog-api/</a>
+                    </li>
+                    <li>
+                        Mozilla Corporation. (2026). <em>JavaScript reference</em>. MDN Web Docs. Retrieved April 8, 2026, from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="text-cyan">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>
+                    </li>
+                    <li>
+                        OpenAI. (2026). <em>ChatGPT</em> (GPT-4) [Large language model]. <a href="https://chat.openai.com" target="_blank" class="text-cyan">https://chat.openai.com</a> (Used as a pair-programming assistant for code scaffolding, CSS debugging, and logic verification).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5">
+        <div class="container">
+            <p>&copy; 2026 Ryan (Lintao) Gong. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery (Required for AJAX and DOM manipulation) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="src/app.js"></script>
+</body>
+</html>

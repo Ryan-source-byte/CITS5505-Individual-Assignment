@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Masterclass | Tutorial</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CITS5505 <span class="text-white">Project</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Tutorial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reflection.html">AI Reflection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1 class="display-3 text-gradient">The Full-Stack Foundation</h1>
+                <p class="lead text-muted mt-3">
+                    Mastering the web requires more than just syntax. It's about understanding the 
+                    architecture that powers the modern internet. Let's dive into the core concepts.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        
+        <!-- HTML Section -->
+        <section id="html-tutorial" class="mb-5">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-7">
+                    <h2 class="mb-4"><span class="text-gradient">01.</span> HTML5: Structure & Semantics</h2>
+                    <p>HTML is the skeleton of the web. Modern standards emphasize <strong>Semantic HTML</strong>—using tags that describe their meaning. For example, instead of a generic <code>&lt;div&gt;</code>, we use the <strong><code>&lt;nav&gt;</code></strong> tag to define a navigation menu. This helps screen readers and search engines understand your site structure.</p>
+                    <p>When you need to force a line break (like in a postal address or a poem), you use the <strong><code>&lt;br&gt;</code></strong> element. Unlike most tags, it doesn't need a closing tag!</p>
+                </div>
+                <div class="col-md-5">
+                    <div class="card p-4 border-cyan bg-dark">
+                        <h5><i class="bi bi-image text-cyan me-2"></i> The Importance of <code>alt</code></h5>
+                        <p class="small text-muted mb-3">
+                            Every image on the web should have an <strong><code>alt</code></strong> attribute. It provides alternative text if the image fails to load and is crucial for visually impaired users relying on screen readers.
+                        </p>
+                        <img src="https://picsum.photos/seed/accessibility/400/200" alt="A beautiful landscape demonstrating the alt attribute" class="img-fluid rounded" referrerPolicy="no-referrer">
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-dark p-3 mb-3">
+                <pre class="m-0"><code>&lt;!-- Semantic Navigation & Image Example --&gt;
+&lt;nav&gt;
+  &lt;a href="/"&gt;Home&lt;/a&gt;
+  &lt;a href="/about"&gt;About&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;123 Web Dev Lane&lt;br&gt;Tech City, TX 75001&lt;/p&gt;
+
+&lt;img src="profile.jpg" alt="Portrait of Ryan Gong"&gt;</code></pre>
+            </div>
+        </section>
+
+        <hr class="my-5 border-secondary opacity-25">
+
+        <!-- CSS Section -->
+        <section id="css-tutorial" class="mb-5">
+            <h2 class="mb-4"><span class="text-gradient">02.</span> CSS: Cascading Style Sheets</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>CSS (Cascading Style Sheets)</strong> is what makes the web beautiful. It controls layout, colors, and typography.</p>
+                    <ul class="text-muted" style="line-height: 1.8;">
+                        <li><strong>Backgrounds:</strong> To change the background color of an element, you use the <strong><code>background-color</code></strong> property.</li>
+                        <li><strong>Targeting Elements:</strong> To style specific elements inside others, use descendant selectors. For example, <strong><code>div p</code></strong> selects all <code>&lt;p&gt;</code> elements that are inside a <code>&lt;div&gt;</code>.</li>
+                        <li><strong>Flexbox Centering:</strong> Flexbox is a modern layout module. To center items <em>horizontally</em> along the main axis, you use <strong><code>justify-content: center;</code></strong>.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-dark p-3 h-100">
+                        <pre class="m-0"><code>/* CSS Examples */
+body {
+  /* Changes the background color */
+  background-color: #FFFFF0; 
+}
+
+/* Descendant Selector: Targets paragraphs inside divs */
+div p {
+  color: #6B5B73;
+}
+
+/* Flexbox Horizontal Centering */
+.container {
+  display: flex;
+  justify-content: center; 
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5 border-secondary opacity-25">
+
+        <!-- Interactive Sandbox Section (Rubric Requirement) -->
+        <section id="sandbox" class="mb-5">
+            <h2 class="mb-4 text-center">Interactive <span class="text-gradient">DOM Sandbox</span></h2>
+            <p class="text-center text-muted mb-4">Experiment with HTML and CSS in real-time. Try changing the <code>background-color</code> or adding a <code>&lt;br&gt;</code> tag!</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">Editor</span>
+                            <button id="run-sandbox" class="btn btn-sm btn-primary">Run Code</button>
+                        </div>
+                        <div class="card-body p-0">
+                            <textarea id="html-input" class="form-control bg-dark text-cyan border-0 p-3" rows="8" spellcheck="false" placeholder="Enter HTML here...">&lt;div class="welcome-box"&gt;
+  &lt;h3&gt;Hello UWA!&lt;/h3&gt;
+  &lt;p&gt;Edit this code to see the magic.&lt;br&gt;Line breaks work too!&lt;/p&gt;
+&lt;/div&gt;</textarea>
+                            <textarea id="css-input" class="form-control bg-dark text-indigo border-0 p-3 border-top border-secondary" rows="11" spellcheck="false" placeholder="Enter CSS here...">.welcome-box {
+  padding: 20px;
+  background-color: #967BB6;
+  color: #FFFFF0;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+.welcome-box p {
+  font-weight: bold;
+}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header fw-bold">Live Preview</div>
+                        <div class="card-body bg-white d-flex align-items-center justify-content-center p-0" id="preview-area" style="min-height: 300px; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; overflow: hidden;">
+                            <!-- Preview content will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5 border-secondary opacity-25">
+
+        <!-- JavaScript Section -->
+        <section id="js-tutorial" class="mb-5">
+            <h2 class="mb-4"><span class="text-gradient">03.</span> JavaScript: Logic & Data</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4 h-100 border-secondary bg-dark">
+                        <h5 class="text-cyan"><i class="bi bi-box-seam me-2"></i>Variables</h5>
+                        <p class="small text-muted mt-2">
+                            Modern JavaScript introduced new ways to declare variables. Use the <strong><code>let</code></strong> keyword to declare a block-scoped variable that can be reassigned later. (Use <code>const</code> for values that never change, and avoid the outdated <code>var</code>).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 h-100 border-secondary bg-dark">
+                        <h5 class="text-cyan"><i class="bi bi-diagram-3 me-2"></i>DOM Selection</h5>
+                        <p class="small text-muted mt-2">
+                            To manipulate the webpage, JS needs to find HTML elements. The most direct way to select an element with a specific ID (like <code>id="demo"</code>) is using <strong><code>document.getElementById('demo')</code></strong>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 h-100 border-secondary bg-dark">
+                        <h5 class="text-cyan"><i class="bi bi-braces me-2"></i>JSON Parsing</h5>
+                        <p class="small text-muted mt-2">
+                            When receiving data from a web server, it often comes as a JSON string. To convert this string into a usable JavaScript object, you use the <strong><code>JSON.parse()</code></strong> function.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-dark p-3 mt-4">
+                <pre class="m-0"><code>// 1. Variable Declaration
+let score = 0;
+score = 10; // 'let' allows reassignment
+
+// 2. DOM Manipulation
+const demoElement = document.getElementById('demo');
+demoElement.textContent = "Hello World!";
+
+// 3. JSON Parsing
+const jsonString = '{"name": "Ryan", "role": "Developer"}';
+const userObject = JSON.parse(jsonString);
+console.log(userObject.name); // Outputs: Ryan</code></pre>
+            </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <div class="text-center py-5">
+            <h3 class="mb-4">Ready to test your knowledge?</h3>
+            <a href="quiz.html" class="btn btn-primary btn-lg px-5 py-3 shadow-lg">
+                Proceed to Quiz <i class="ms-2">→</i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2026 Ryan (Lintao) Gong. All rights reserved.</p>
+            <p>UWA CITS5505 Individual Project</p>
+        </div>
+    </footer>
+
+    <!-- jQuery (Required for AJAX and DOM manipulation) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="src/app.js"></script>
+</body>
+</html>

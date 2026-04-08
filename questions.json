@@ -1,0 +1,74 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "topic": "HTML",
+            "question": "Which HTML5 tag should be used for a navigation menu?",
+            "options": ["<nav>", "<navigation>", "<menu>", "<header>"],
+            "answer": 0
+        },
+        {
+            "id": 2,
+            "topic": "CSS",
+            "question": "Which CSS property is used to change the background color of an element?",
+            "options": ["color", "bgcolor", "background-color", "bg-color"],
+            "answer": 2
+        },
+        {
+            "id": 3,
+            "topic": "JavaScript",
+            "question": "Which keyword is used to declare a block-scoped variable that can be reassigned?",
+            "options": ["var", "let", "const", "function"],
+            "answer": 1
+        },
+        {
+            "id": 4,
+            "topic": "HTML",
+            "question": "What is the correct HTML element for inserting a line break?",
+            "options": ["<break>", "<lb>", "<br>", "<newline>"],
+            "answer": 2
+        },
+        {
+            "id": 5,
+            "topic": "CSS",
+            "question": "How do you center items horizontally in a flex container?",
+            "options": ["align-items: center;", "justify-content: center;", "text-align: center;", "vertical-align: middle;"],
+            "answer": 1
+        },
+        {
+            "id": 6,
+            "topic": "JavaScript",
+            "question": "How do you select an element with the id 'demo' in JavaScript?",
+            "options": ["document.querySelector('.demo')", "document.getElementById('demo')", "document.getElementByName('demo')", "document.select('#demo')"],
+            "answer": 1
+        },
+        {
+            "id": 7,
+            "topic": "HTML",
+            "question": "Which attribute is used to provide alternative text for an image?",
+            "options": ["title", "src", "alt", "description"],
+            "answer": 2
+        },
+        {
+            "id": 8,
+            "topic": "CSS",
+            "question": "How do you select all <p> elements inside a <div> element?",
+            "options": ["div.p", "div + p", "div p", "div > p"],
+            "answer": 2
+        },
+        {
+            "id": 9,
+            "topic": "JavaScript",
+            "question": "Which function is used to parse a JSON string into a JavaScript object?",
+            "options": ["JSON.stringify()", "JSON.parse()", "JSON.object()", "JSON.decode()"],
+            "answer": 1
+        },
+        {
+            "id": 10,
+            "topic": "CSS",
+            "question": "What does CSS stand for?",
+            "options": ["Computer Style Sheets", "Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets"],
+            "answer": 2
+        }
+    ]
+}

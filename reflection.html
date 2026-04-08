@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reflection Log | CITS5505 Project</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CITS5505 <span class="text-white">Project</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Tutorial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="reflection.html">AI Reflection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-5 text-center container">
+        <h1 class="display-5 text-gradient">AI Reflection Log</h1>
+        <p class="lead text-muted mt-3">
+            A critical evaluation of Artificial Intelligence tools used during the development of this project.
+        </p>
+    </header>
+
+    <main class="container my-4">
+        
+        <!-- Introduction -->
+        <section class="mb-5">
+            <div class="card p-4 border-cyan bg-dark">
+                <h4 class="text-cyan mb-3">Overview of AI Usage</h4>
+                <p class="mb-0">
+                    During the development of this web application, I utilized Large Language Models (specifically ChatGPT/Claude) as a pair-programming assistant. While AI significantly accelerated boilerplate generation and syntax troubleshooting, I quickly learned that its outputs cannot be trusted blindly. This log documents specific instances where AI was used, how its output was modified, and a critical analysis of its limitations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Use Case 1 -->
+        <section class="mb-5">
+            <h3 class="mb-4"><span class="text-gradient">Use Case 1:</span> Array Randomisation Algorithm</h3>
+            <div class="card mb-4">
+                <div class="card-header fw-bold">Prompt Used</div>
+                <div class="card-body bg-dark text-light">
+                    <code class="text-muted">"Write a JavaScript function to randomly shuffle an array of quiz questions."</code>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-header text-warning fw-bold">AI Output (Summary)</div>
+                        <div class="card-body bg-dark">
+                            <p class="small text-muted">The AI suggested using the built-in <code>Array.prototype.sort()</code> method combined with <code>Math.random()</code>.</p>
+                            <pre class="m-0 p-3 rounded"><code>function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-success">
+                        <div class="card-header text-success fw-bold">My Modifications & Reasoning</div>
+                        <div class="card-body bg-dark">
+                            <p class="small text-muted">I rejected this output. The <code>sort()</code> method is <strong>not truly random</strong> and introduces statistical bias depending on the browser's sorting algorithm implementation. Instead, I implemented the <strong>Fisher-Yates Shuffle</strong> algorithm in <code>app.js</code>.</p>
+                            <pre class="m-0 p-3 rounded"><code>function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Case 2: Critical Evaluation -->
+        <section class="mb-5">
+            <h3 class="mb-4"><span class="text-gradient">Use Case 2:</span> The Subtly Incorrect LocalStorage Implementation</h3>
+            
+            <div class="alert alert-info border-cyan bg-dark text-light mb-4">
+                <h5 class="alert-heading text-cyan"><i class="bi bi-exclamation-triangle"></i> Critical Evaluation Requirement</h5>
+                <p class="mb-0 small">This section highlights a scenario where the AI provided code that appeared correct and worked in standard environments, but contained a hidden flaw that would crash the application under specific user conditions.</p>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header fw-bold">Prompt Used</div>
+                <div class="card-body bg-dark text-light">
+                    <code class="text-muted">"How do I save the user's quiz score object to LocalStorage in JavaScript?"</code>
+                </div>
+            </div>
+
+            <div class="card mb-4 border-danger">
+                <div class="card-header text-danger fw-bold">The AI's "Subtly Incorrect" Output</div>
+                <div class="card-body bg-dark">
+                    <p class="small text-muted">The AI provided a standard implementation using <code>JSON.stringify()</code> and <code>localStorage.setItem()</code>.</p>
+                    <pre class="m-0 p-3 rounded"><code>function saveScore(scoreObj) {
+  let history = JSON.parse(localStorage.getItem('quiz_history')) || [];
+  history.push(scoreObj);
+  localStorage.setItem('quiz_history', JSON.stringify(history));
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="card border-success">
+                <div class="card-header text-success fw-bold">Detection and Resolution</div>
+                <div class="card-body bg-dark">
+                    <h6 class="text-white">What was wrong?</h6>
+                    <p class="small text-muted">
+                        At first glance, the code works perfectly in a normal Chrome browser. However, during my cross-browser testing phase, I tested the application in <strong>Safari's Private Browsing Mode</strong> (and iOS incognito). In these environments, Safari strictly restricts storage access. Calling <code>localStorage.setItem()</code> without available quota throws a fatal <code>QuotaExceededError</code>, which immediately halts the execution of the entire JavaScript thread. This meant if a user took the quiz in private mode, clicking "Submit" would crash the app, preventing the score from displaying and the API reward from triggering.
+                    </p>
+                    
+                    <h6 class="text-white mt-4">How I fixed it</h6>
+                    <p class="small text-muted">
+                        I realized that any interaction with Web Storage APIs must be treated as an unreliable operation. I rewrote the AI's logic in <code>app.js</code> by wrapping both the read and write operations in <code>try/catch</code> blocks. If the storage fails, the app gracefully catches the error, logs it to the console, and continues executing the rest of the UI logic (showing the score and fetching the dog image), ensuring the user experience is not interrupted.
+                    </p>
+                    <pre class="m-0 p-3 rounded"><code>function saveAttemptToHistory(scoreData) {
+  try {
+    let history = getHistoryData();
+    history.unshift(scoreData);
+    localStorage.setItem('cits5505_quiz_history', JSON.stringify(history));
+  } catch (error) {
+    // Graceful degradation: App continues to work even if storage fails
+    console.error('LocalStorage write failed (possibly private browsing):', error);
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion & Ethical Considerations -->
+        <section class="mb-5">
+            <h3 class="mb-3">Conclusion & Ethical Considerations</h3>
+            <p class="text-muted">
+                Using AI tools like ChatGPT is akin to having a junior developer on the team: they are incredibly fast at typing out boilerplate and suggesting standard patterns, but they lack the architectural foresight and edge-case awareness of a senior engineer. The LocalStorage incident demonstrated that AI assumes a "happy path" execution environment. As a developer, my responsibility shifts from merely writing syntax to rigorously auditing, testing, and fortifying the code against real-world constraints.
+            </p>
+            <div class="card bg-dark border-secondary p-4 mt-4">
+                <h5 class="text-indigo mb-3"><i class="bi bi-shield-check me-2"></i> Ethical Analysis of AI in Academic Coding</h5>
+                <ul class="text-muted small mb-0" style="line-height: 1.8;">
+                    <li><strong>Academic Integrity & Over-reliance:</strong> Relying on AI to generate entire features without understanding the underlying logic compromises the learning process. I ensured that every line of AI-generated code was manually reviewed, understood, and often rewritten (as seen in the Fisher-Yates and LocalStorage examples) to reflect my own comprehension and meet the project's specific constraints.</li>
+                    <li><strong>Bias and "Hallucinations":</strong> AI models are trained on vast datasets of historical code, which often include outdated or deprecated practices (e.g., suggesting <code>var</code> instead of <code>let/const</code>, or ignoring modern accessibility standards). Blindly accepting these suggestions can perpetuate bad practices.</li>
+                    <li><strong>Data Privacy:</strong> When prompting the AI, I was careful not to share any sensitive personal information, proprietary university materials, or API keys. The prompts were kept strictly to abstract programming concepts and generic algorithms.</li>
+                    <li><strong>Transparency:</strong> In accordance with UWA's academic guidelines, all AI assistance has been explicitly acknowledged in the References section of the CV page, ensuring full transparency about the tools used to support this project.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2026 Ryan (Lintao) Gong. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery (Required for AJAX and DOM manipulation) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="src/app.js"></script>
+</body>
+</html>

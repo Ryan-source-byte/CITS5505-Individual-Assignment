@@ -1,0 +1,322 @@
+/* 
+ * style.css - Global Styles & Custom Theme
+ * Author: Ryan (Lintao) Gong
+ * Project: UWA CITS5505 Individual Project
+ */
+
+/* Import Bootstrap 5 via CDN */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    /* Color Palette - Lavender, Mustard Yellow, Ivory White Theme */
+    --bg-dark: #FFFFF0; /* Ivory White */
+    --bg-card: #FFFFFF; /* Pure White */
+    --accent-cyan: #967BB6; /* Lavender */
+    --accent-indigo: #E1AD01; /* Mustard Yellow */
+    --text-main: #2D2331; /* Deep Dark Purple/Grey */
+    --text-muted: #6B5B73; /* Muted Lavender */
+    --border-color: rgba(150, 123, 182, 0.3);
+    
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Spacing & Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-slow: 0.4s ease;
+}
+
+/* Global Reset & Base Styles */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-card);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-indigo);
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* High Contrast Utility Overrides */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-white, .text-light {
+    color: var(--text-main) !important;
+}
+
+.bg-dark {
+    background-color: var(--bg-dark) !important;
+}
+
+.border-cyan {
+    border-color: var(--accent-cyan) !important;
+}
+
+.text-cyan {
+    color: var(--accent-cyan) !important;
+}
+
+.text-indigo {
+    color: var(--accent-indigo) !important;
+}
+
+/* Form Control Overrides for Sandbox */
+.form-control {
+    color: var(--text-main) !important;
+}
+
+.form-control:focus {
+    background-color: var(--bg-dark) !important;
+    color: var(--text-main) !important;
+    box-shadow: inset 0 0 0 1px var(--accent-cyan) !important;
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: rgba(255, 255, 240, 0.9) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    transition: var(--transition-fast);
+}
+
+.navbar-toggler-icon {
+    filter: invert(0.8);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent-cyan) !important;
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-main) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Card Customization */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    color: var(--text-main);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(34, 211, 238, 0.3);
+}
+
+.card-header {
+    background-color: rgba(150, 123, 182, 0.05);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem;
+    color: var(--text-main);
+}
+
+/* Button Customization */
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+    color: #FFFFFF !important;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.btn-outline-cyan {
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    background: transparent;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.btn-outline-cyan:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+}
+
+/* Code Snippet Styling */
+pre {
+    background-color: #F4F0F8 !important;
+    color: var(--text-main) !important;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+}
+
+pre code {
+    color: inherit !important; /* Prevent all pre text from becoming cyan */
+}
+
+code {
+    font-family: var(--font-mono);
+    color: var(--accent-cyan);
+}
+
+/* Quiz Specific Styles */
+.quiz-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.quiz-option:hover {
+    background: rgba(34, 211, 238, 0.1);
+    border-color: var(--accent-cyan);
+}
+
+.quiz-option.selected {
+    background: var(--accent-cyan);
+    color: #FFFFFF;
+    border-color: var(--accent-cyan);
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .navbar-brand { font-size: 1.25rem; }
+}
+
+/* CV Specific Styles: Timeline */
+.cv-timeline {
+    border-left: 2px solid var(--border-color);
+    padding-left: 2rem;
+    position: relative;
+}
+
+.cv-timeline-item {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.cv-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    border: 3px solid var(--accent-cyan);
+    transform: translateX(-50%);
+    transition: var(--transition-fast);
+}
+
+.cv-timeline-item:hover::before {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 15px var(--accent-cyan);
+}
+
+/* CV Specific Styles: Skill Bars */
+.skill-progress {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.skill-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo));
+    width: 0; /* Animated via JS */
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* References Section (APA Hanging Indent) */
+.reference-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.reference-list li {
+    padding-left: 2rem;
+    text-indent: -2rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 0;
+    margin-top: 5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "cits5505-project",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "serve . -p 3000",
+    "build": "mkdir -p dist && cp -r *.html src questions.json \"personal photo.jpg\" dist/",
+    "preview": "serve dist -p 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
