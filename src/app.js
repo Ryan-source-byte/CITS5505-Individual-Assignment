@@ -152,11 +152,13 @@ function initQuizModule() {
             
             $.each(q.options, function(optIndex, optText) {
                 const $optDiv = $('<div>', { class: 'quiz-option d-flex align-items-center' });
-                
-                $optDiv.html(`
-                    <div class="option-circle me-3" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--text-muted); transition: all 0.2s;"></div>
-                    <span>${optText}</span>
-                `);
+                const $optionCircle = $('<div>', {
+                    class: 'option-circle me-3',
+                    style: 'width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--text-muted); transition: all 0.2s;'
+                });
+                const $optionText = $('<span>', { text: optText });
+
+                $optDiv.append($optionCircle, $optionText);
                 
                 // jQuery Event Listener
                 $optDiv.on('click', function() {
@@ -390,4 +392,3 @@ function initQuizModule() {
         }
     }
 }
-
