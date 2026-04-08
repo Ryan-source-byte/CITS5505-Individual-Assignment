@@ -62,14 +62,16 @@
                 </div>
             </div>
             <div class="card bg-dark p-3 mb-3">
-                <pre class="m-0"><code>&lt;!-- Semantic Navigation & Image Example --&gt;
+                <pre class="m-0"><code>&lt;!-- 1. Semantic Navigation --&gt;
 &lt;nav&gt;
   &lt;a href="/"&gt;Home&lt;/a&gt;
   &lt;a href="/about"&gt;About&lt;/a&gt;
 &lt;/nav&gt;
 
+&lt;!-- 2. Line Break Inside a Paragraph --&gt;
 &lt;p&gt;123 Web Dev Lane&lt;br&gt;Tech City, TX 75001&lt;/p&gt;
 
+&lt;!-- 3. Accessible Image with Alt Text --&gt;
 &lt;img src="profile.jpg" alt="Portrait of Ryan Gong"&gt;</code></pre>
             </div>
         </section>
@@ -90,18 +92,17 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card bg-dark p-3 h-100">
-                        <pre class="m-0"><code>/* CSS Examples */
+                        <pre class="m-0"><code>/* 1. Background Color */
 body {
-  /* Changes the background color */
   background-color: #FFFFF0; 
 }
 
-/* Descendant Selector: Targets paragraphs inside divs */
+/* 2. Descendant Selector */
 div p {
   color: #6B5B73;
 }
 
-/* Flexbox Horizontal Centering */
+/* 3. Flexbox Centering */
 .container {
   display: flex;
   justify-content: center; 
@@ -130,7 +131,7 @@ div p {
   &lt;h3&gt;Hello UWA!&lt;/h3&gt;
   &lt;p&gt;Edit this code to see the magic.&lt;br&gt;Line breaks work too!&lt;/p&gt;
 &lt;/div&gt;</textarea>
-                            <textarea id="css-input" class="form-control bg-dark text-indigo border-0 p-3 border-top border-secondary" rows="11" spellcheck="false" placeholder="Enter CSS here...">.welcome-box {
+                            <textarea id="css-input" class="form-control bg-dark text-indigo border-0 p-3 border-top border-secondary" rows="14" spellcheck="false" placeholder="Enter CSS here...">.welcome-box {
   padding: 20px;
   background-color: #967BB6;
   color: #FFFFF0;
@@ -193,11 +194,11 @@ div p {
                 <pre class="m-0"><code>// 1. Variable Declaration
 let score = 0;
 score = 10; // 'let' allows reassignment
-
-// 2. DOM Manipulation
+ 
+// 2. DOM Selection
 const demoElement = document.getElementById('demo');
 demoElement.textContent = "Hello World!";
-
+ 
 // 3. JSON Parsing
 const jsonString = '{"name": "Ryan", "role": "Developer"}';
 const userObject = JSON.parse(jsonString);
