@@ -87,11 +87,11 @@
 
         <!-- Use Case 2: Critical Evaluation -->
         <section class="mb-5">
-            <h3 class="mb-4"><span class="text-gradient">Use Case 2:</span> The Subtly Incorrect LocalStorage Implementation</h3>
+            <h3 class="mb-4"><span class="text-gradient">Use Case 2:</span> The Incorrect Assumption That LocalStorage Data Is Always Valid</h3>
             
             <div class="alert alert-info border-cyan bg-dark text-light mb-4">
                 <h5 class="alert-heading text-cyan"><i class="bi bi-exclamation-triangle"></i> Critical Evaluation Requirement</h5>
-                <p class="mb-0 small">This section highlights a scenario where the AI provided code that appeared correct and worked in standard environments, but contained a hidden flaw that would crash the application under specific user conditions.</p>
+                <p class="mb-0 small">This section highlights a scenario where the AI provided code that appeared correct and worked during normal testing, but failed when client-side data had been corrupted or was no longer valid JSON.</p>
             </div>
 
             <div class="card mb-4">
@@ -118,12 +118,18 @@
                 <div class="card-body bg-dark">
                     <h6 class="text-white">What was wrong?</h6>
                     <p class="small text-muted">
-                        At first glance, the code works perfectly in a normal Chrome browser. However, during my cross-browser testing phase, I tested the application in <strong>Safari's Private Browsing Mode</strong> (and iOS incognito). In these environments, Safari strictly restricts storage access. Calling <code>localStorage.setItem()</code> without available quota throws a fatal <code>QuotaExceededError</code>, which immediately halts the execution of the entire JavaScript thread. This meant if a user took the quiz in private mode, clicking "Submit" would crash the app, preventing the score from displaying and the API reward from triggering.
+                        The flaw was not in the syntax, but in the assumption behind it. The AI-generated code assumed that the existing value stored in <code>localStorage</code> would always be valid JSON. To test this properly, I manually corrupted the stored value in the browser console by setting <code>cits5505_quiz_history</code> to a plain string (<code>'broken-json'</code>). When the quiz was submitted, <code>JSON.parse()</code> threw an uncaught <code>SyntaxError</code>. Because the exception occurred in the middle of the submit flow, the score display appeared first, but the history was not saved and the Pok&eacute;API reward request never executed.
                     </p>
+                    <figure class="mt-3 mb-0">
+                        <img src="localstorge_error_photo.png" alt="Browser console screenshot showing an uncaught SyntaxError from JSON.parse when corrupted localStorage data was submitted" class="img-fluid rounded border border-secondary shadow-sm">
+                        <figcaption class="small text-muted mt-2">
+                            Figure: Console evidence of the uncaught <code>SyntaxError</code> triggered by invalid JSON stored in <code>localStorage</code>.
+                        </figcaption>
+                    </figure>
                     
                     <h6 class="text-white mt-4">How I fixed it</h6>
                     <p class="small text-muted">
-                        I realized that any interaction with Web Storage APIs must be treated as an unreliable operation. I rewrote the AI's logic in <code>app.js</code> by wrapping both the read and write operations in <code>try/catch</code> blocks. If the storage fails, the app gracefully catches the error, logs it to the console, and continues executing the rest of the UI logic (showing the score and fetching the Pok&eacute;mon image), ensuring the user experience is not interrupted.
+                        I concluded that client-side storage must be treated as untrusted input. I rewrote the logic in <code>app.js</code> so that reading history is delegated to a safer helper function and storage writes are wrapped in <code>try/catch</code>. If the stored data is corrupted or storage fails for any other reason, the application now falls back to an empty history, logs the error, and continues running the rest of the UI logic instead of breaking the submission workflow.
                     </p>
                     <pre class="m-0 p-3 rounded"><code>function saveAttemptToHistory(scoreData) {
   try {
@@ -131,8 +137,8 @@
     history.unshift(scoreData);
     localStorage.setItem('cits5505_quiz_history', JSON.stringify(history));
   } catch (error) {
-    // Graceful degradation: App continues to work even if storage fails
-    console.error('LocalStorage write failed (possibly private browsing):', error);
+    // Graceful degradation: App continues to work even if stored data is invalid
+    console.error('LocalStorage write failed:', error);
   }
 }</code></pre>
                 </div>
@@ -143,7 +149,7 @@
         <section class="mb-5">
             <h3 class="mb-3">Conclusion & Ethical Considerations</h3>
             <p class="text-muted">
-                Using AI tools like ChatGPT is akin to having a junior developer on the team: they are incredibly fast at typing out boilerplate and suggesting standard patterns, but they lack the architectural foresight and edge-case awareness of a senior engineer. The LocalStorage incident demonstrated that AI assumes a "happy path" execution environment. As a developer, my responsibility shifts from merely writing syntax to rigorously auditing, testing, and fortifying the code against real-world constraints.
+                Using AI tools like ChatGPT is akin to having a junior developer on the team: they are incredibly fast at typing out boilerplate and suggesting standard patterns, but they lack the architectural foresight and edge-case awareness of a senior engineer. The LocalStorage incident demonstrated that AI often assumes a "happy path" data state and does not automatically defend against corrupted client-side input. As a developer, my responsibility shifts from merely writing syntax to rigorously auditing, testing, and fortifying the code against real-world constraints.
             </p>
             <div class="card bg-dark border-secondary p-4 mt-4">
                 <h5 class="text-indigo mb-3"><i class="bi bi-shield-check me-2"></i> Ethical Analysis of AI in Academic Coding</h5>

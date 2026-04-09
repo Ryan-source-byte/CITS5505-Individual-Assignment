@@ -320,7 +320,7 @@ function initQuizModule() {
 
         try {
             let history = getHistoryData();
-            history.unshift(attempt); 
+            history.unshift(attempt);
             localStorage.setItem('cits5505_quiz_history', JSON.stringify(history));
             renderHistoryList(history);
         } catch (error) {
