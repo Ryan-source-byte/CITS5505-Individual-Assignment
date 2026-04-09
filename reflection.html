@@ -72,7 +72,7 @@
                     <div class="card h-100 border-success">
                         <div class="card-header text-success fw-bold">My Modifications & Reasoning</div>
                         <div class="card-body bg-dark">
-                            <p class="small text-muted">I rejected this output. The <code>sort()</code> method is <strong>not truly random</strong> and introduces statistical bias depending on the browser's sorting algorithm implementation. Instead, I implemented the <strong>Fisher-Yates Shuffle</strong> algorithm in <code>app.js</code>.</p>
+                            <p class="small text-muted">I rejected this output. The <code>sort()</code> method is <strong>not truly random</strong> and introduces statistical bias depending on the browser's sorting algorithm implementation. Instead, I implemented the <strong>Fisher-Yates Shuffle</strong> algorithm(uniform shuffling algorithm) in <code>app.js</code>.</p>
                             <pre class="m-0 p-3 rounded"><code>function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
