@@ -60,7 +60,7 @@ This is a pure static website. No Node.js packages or build step are required.
 You can run it in either of these ways:
 
 1. Open the project with a local static server such as VS Code Live Server.
-2. Open `index.html` directly in a browser for basic viewing.
+2. Open the deployed GitHub Pages site: https://ryan-source-byte.github.io/CITS5505-Individual-Assignment/
 
 For the most reliable behaviour, especially for AJAX loading of `questions.json`, run the project through a local server instead of opening the files directly.
 
