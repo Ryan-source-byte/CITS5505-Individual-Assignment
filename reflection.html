@@ -41,7 +41,7 @@
             <div class="card p-4 border-cyan bg-dark">
                 <h4 class="text-cyan mb-3">Overview of AI Usage</h4>
                 <p class="mb-0">
-                    During the development of this web application, I utilized Large Language Models (specifically ChatGPT/Claude) as a pair-programming assistant. While AI significantly accelerated boilerplate generation and syntax troubleshooting, I quickly learned that its outputs cannot be trusted blindly. This log documents specific instances where AI was used, how its output was modified, and a critical analysis of its limitations.
+                    During the development of this web application, I utilized Large Language Models (specifically ChatGPT/Gemini) as a pair-programming assistant. While AI significantly accelerated boilerplate generation and syntax troubleshooting, I quickly learned that its outputs cannot be trusted blindly. This log documents specific instances where AI was used, how its output was modified, and a critical analysis of its limitations.
                 </p>
             </div>
         </section>
@@ -121,7 +121,7 @@
                         The flaw was not in the syntax, but in the assumption behind it. The AI-generated code assumed that the existing value stored in <code>localStorage</code> would always be valid JSON. To test this properly, I manually corrupted the stored value in the browser console by setting <code>cits5505_quiz_history</code> to a plain string (<code>'broken-json'</code>). When the quiz was submitted, <code>JSON.parse()</code> threw an uncaught <code>SyntaxError</code>. Because the exception occurred in the middle of the submit flow, the score display appeared first, but the history was not saved and the Pok&eacute;API reward request never executed.
                     </p>
                     <figure class="mt-3 mb-0">
-                        <img src="localstorge_error_photo.png" alt="Browser console screenshot showing an uncaught SyntaxError from JSON.parse when corrupted localStorage data was submitted" class="img-fluid rounded border border-secondary shadow-sm">
+                        <img src="assets/images/localstorge_error_photo.png" alt="Browser console screenshot showing an uncaught SyntaxError from JSON.parse when corrupted localStorage data was submitted" class="img-fluid rounded border border-secondary shadow-sm">
                         <figcaption class="small text-muted mt-2">
                             Figure: Console evidence of the uncaught <code>SyntaxError</code> triggered by invalid JSON stored in <code>localStorage</code>.
                         </figcaption>
