@@ -64,6 +64,8 @@ You can run it in either of these ways:
 
 For the most reliable behaviour, especially for AJAX loading of `questions.json`, run the project through a local server instead of opening the files directly.
 
+- Important: do not open `quiz.html` by double-clicking it from the file system. In a `file://` context, most browsers block the AJAX request to `questions.json` for security reasons, so you must start a local static server first.
+
 ## Notes
 
 - The quiz data is loaded from `questions.json`.
