@@ -387,7 +387,9 @@ function initQuizModule() {
         isDirty = false;
         $resultContainer.addClass('d-none');
         $rewardContainer.addClass('d-none');
-        $('#reward-image').attr('src', '').attr('alt', 'Random Pokemon reward');
+        $('#reward-image')
+            .attr('src', 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==')
+            .attr('alt', 'Random Pokemon reward');
         $('#reward-name').text('');
         $quizContainer.removeClass('d-none').hide().fadeIn(500);
         

@@ -42,7 +42,7 @@
         <!-- Introduction -->
         <section class="mb-5">
             <div class="card p-4 border-cyan bg-dark">
-                <h4 class="text-cyan mb-3">Overview of AI Usage</h4>
+                <h2 class="h4 text-cyan mb-3">Overview of AI Usage</h2>
                 <p class="mb-0">
                     During the development of this web application, I utilized Large Language Models (specifically ChatGPT/Gemini) as a pair-programming assistant. While AI significantly accelerated boilerplate generation and syntax troubleshooting, I quickly learned that its outputs cannot be trusted blindly. This log documents specific instances where AI was used, how its output was modified, and a critical analysis of its limitations.
                 </p>
@@ -93,7 +93,7 @@
             <h3 class="mb-4"><span class="text-gradient">Use Case 2:</span> The Incorrect Assumption That LocalStorage Data Is Always Valid</h3>
             
             <div class="alert alert-info border-cyan bg-dark text-light mb-4">
-                <h5 class="alert-heading text-cyan"><i class="bi bi-exclamation-triangle"></i> Critical Evaluation Requirement</h5>
+                <h4 class="h5 alert-heading text-cyan"><i class="bi bi-exclamation-triangle"></i> Critical Evaluation Requirement</h4>
                 <p class="mb-0 small">This section highlights a scenario where the AI provided code that appeared correct and worked during normal testing, but failed when client-side data had been corrupted or was no longer valid JSON.</p>
             </div>
 
@@ -119,7 +119,7 @@
             <div class="card border-success">
                 <div class="card-header text-success fw-bold">Detection and Resolution</div>
                 <div class="card-body bg-dark">
-                    <h6 class="text-white">What was wrong?</h6>
+                    <h4 class="h6 text-white">What was wrong?</h4>
                     <p class="small text-muted">
                         The flaw was not in the syntax, but in the assumption behind it. The AI-generated code assumed that the existing value stored in <code>localStorage</code> would always be valid JSON. To test this properly, I manually corrupted the stored value in the browser console by setting <code>cits5505_quiz_history</code> to a plain string (<code>'broken-json'</code>). When the quiz was submitted, <code>JSON.parse()</code> threw an uncaught <code>SyntaxError</code>. Because the exception occurred in the middle of the submit flow, the score display appeared first, but the history was not saved and the Pok&eacute;API reward request never executed.
                     </p>
@@ -130,7 +130,7 @@
                         </figcaption>
                     </figure>
                     
-                    <h6 class="text-white mt-4">How I fixed it</h6>
+                    <h4 class="h6 text-white mt-4">How I fixed it</h4>
                     <p class="small text-muted">
                         I concluded that client-side storage must be treated as untrusted input. I rewrote the logic in <code>app.js</code> so that reading history is delegated to a safer helper function and storage writes are wrapped in <code>try/catch</code>. If the stored data is corrupted or storage fails for any other reason, the application now falls back to an empty history, logs the error, and continues running the rest of the UI logic instead of breaking the submission workflow.
                     </p>
@@ -155,7 +155,7 @@
                 Using AI tools like ChatGPT is akin to having a junior developer on the team: they are incredibly fast at typing out boilerplate and suggesting standard patterns, but they lack the architectural foresight and edge-case awareness of a senior engineer. The LocalStorage incident demonstrated that AI often assumes a "happy path" data state and does not automatically defend against corrupted client-side input. As a developer, my responsibility shifts from merely writing syntax to rigorously auditing, testing, and fortifying the code against real-world constraints.
             </p>
             <div class="card bg-dark border-secondary p-4 mt-4">
-                <h5 class="text-indigo mb-3"><i class="bi bi-shield-check me-2"></i> Ethical Analysis of AI in Academic Coding</h5>
+                <h4 class="h5 text-indigo mb-3"><i class="bi bi-shield-check me-2"></i> Ethical Analysis of AI in Academic Coding</h4>
                 <ul class="text-muted small mb-0" style="line-height: 1.8;">
                     <li><strong>Academic Integrity & Over-reliance:</strong> Relying on AI to generate entire features without understanding the underlying logic compromises the learning process. I ensured that every line of AI-generated code was manually reviewed, understood, and often rewritten (as seen in the Fisher-Yates and LocalStorage examples) to reflect my own comprehension and meet the project's specific constraints.</li>
                     <li><strong>Bias and "Hallucinations":</strong> AI models are trained on vast datasets of historical code, which often include outdated or deprecated practices (e.g., suggesting <code>var</code> instead of <code>let/const</code>, or ignoring modern accessibility standards). Blindly accepting these suggestions can perpetuate bad practices.</li>

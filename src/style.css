@@ -170,7 +170,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: translate(-50%, -6px);
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
     white-space: nowrap;
     padding: 0.38rem 0.72rem;
     border-radius: 999px;
@@ -194,7 +193,6 @@ h1, h2, h3, h4, h5, h6 {
 .nav-item-cv:focus-within .cv-download-link {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
     transform: translate(-50%, 0);
 }
 
@@ -305,7 +303,6 @@ code {
         transform: none;
         opacity: 1;
         visibility: visible;
-        pointer-events: auto;
         box-shadow: none;
     }
 }
