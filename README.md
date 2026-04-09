@@ -36,66 +36,37 @@ This project is a multi-page static website built with HTML, CSS, JavaScript, an
 
 ```text
 .
-├── index.html
-├── quiz.html
-├── reflection.html
-├── cv.html
-├── questions.json
-├── personal photo.jpg
-├── src/
-│   ├── app.js
-│   └── style.css
-├── package.json
-└── metadata.json
+|-- index.html
+|-- quiz.html
+|-- reflection.html
+|-- cv.html
+|-- questions.json
+|-- src/
+|   |-- app.js
+|   `-- style.css
+`-- assets/
+    |-- images/
+    |   |-- alt_photo.jpg
+    |   |-- localstorge_error_photo.png
+    |   `-- personal photo.jpg
+    `-- pdf/
+        `-- Ryan-Gong-CV.pdf
 ```
 
 ## Run Locally
 
-### Prerequisite
+This is a pure static website. No Node.js packages or build step are required.
 
-- Node.js
+You can run it in either of these ways:
 
-### Install dependencies
+1. Open the project with a local static server such as VS Code Live Server.
+2. Open `index.html` directly in a browser for basic viewing.
 
-```bash
-npm install
-```
-
-### Start the local server
-
-```bash
-npm run dev
-```
-
-Then open:
-
-```text
-http://localhost:3000
-```
-
-## Available Scripts
-
-```bash
-npm run dev
-```
-
-Starts a local development server on port `3000`.
-
-```bash
-npm run build
-```
-
-Copies the project files into a `dist/` folder.
-
-```bash
-npm run preview
-```
-
-Serves the `dist/` folder on port `3000`.
+For the most reliable behaviour, especially for AJAX loading of `questions.json`, run the project through a local server instead of opening the files directly.
 
 ## Notes
 
 - The quiz data is loaded from `questions.json`.
 - Attempt history is stored locally in the browser under `localStorage`.
 - The reward image on the quiz result page is fetched from PokeAPI.
-- For best results, run the project through a local server rather than opening the HTML files directly.
+- External libraries such as jQuery, Bootstrap, Bootstrap Icons, and Google Fonts are loaded dynamically via CDN.
